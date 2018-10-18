@@ -8,10 +8,6 @@ import Score from './Score'
 
 class App extends React.Component {
 
-	constructor(props) {
-		super(props);
-	}
-
 	componentDidMount() {
 		this.generateEquation();
 	}
