@@ -8,6 +8,11 @@ import Score from './Score'
 
 class App extends React.Component {
 
+	constructor(props) {
+		super(props);
+		this.handlePlayerAnswer = this.handlePlayerAnswer.bind(this);
+	}
+
 	componentDidMount() {
 		this.generateEquation();
 	}
@@ -39,7 +44,7 @@ class App extends React.Component {
 		});
 	};
 
-	checkPlayerAnswer(playerAnswer) {
+	handlePlayerAnswer(playerAnswer) {
 		const correctAnswer = this.state.proposedSum === this.state.correctSum;
 
 		this.setState(currentState => {
@@ -68,7 +73,7 @@ class App extends React.Component {
 					proposedSum={this.state.proposedSum}
 				/>
 				<Buttons
-					clicked={this.checkPlayerAnswer.bind(this)}
+					clicked={this.handlePlayerAnswer}
 				/>
 				<Score
 					numCorrect={this.state.numCorrect}
